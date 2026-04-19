@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Radio+Canada+Big:ital,wght@0,400..700;1,400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Radio+Canada+Big:ital,wght@0,400..700;1,400..700&display=swap');
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Radio Canada Big';
+  background: linear-gradient(180deg, #10375c 0%, #ffffff 100%);
+}
+
+
+
+.header {
+  padding: 15px 0;
+  color: transparent;;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  width: 90%;
+  margin: auto;
+}
+
+.logo {
+    display: flex;
+    align-items: center; 
+    gap: 10px;           
+}
+
+.logo-img {
+    height: 35px;       
+    width: auto;       
+}
+
+.forever-text {
+    font-family: 'Archivo';
+    font-weight: bold;
+    font-style: italic;
+    font-size: 20px;
+    color: white;
+    letter-spacing: 0px; 
+}
+
+.navbar {
+  display: flex;
+  list-style: none;
+  margin: 10;
+  padding: 0;
+  gap: 30px; 
+}
+
+.navbar a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.botoes {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.botoes a {
+  text-decoration: none;
+  padding: 8px 25px;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.btn_cadastro {
+    font-family: 'Archivo';
+    color: #ffffff;
+    border-color: #ffffff;
+    background-color: transparent;
+    border-radius: 10px;
+    padding: 8%;
+    width: 150px;
+    cursor: pointer;
+
+}
+
+.btn_login{
+    font-family: 'Archivo';
+    color: #141530;
+    border-color: #141530;
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 8%;
+    width: 150px;
+    cursor: pointer;
+
+}
+
+.banner {
+  height: 80vh; 
+  display: flex;
+  align-items: center; 
+}
+
+.texto-banner {
+  width: 50%;
+}
+
+
+.fonte1 {
+  font-family: 'serif'; 
+  font-weight: 400;
+  font-size: 70px;
+  color: #000000;
+}
+
+.fonte2 {
+  font-family: 'Radio Canada Big'; 
+  font-weight: 500; /* Mais grossinha */
+  font-size: 70px;
+  color: #000000;
+  display: block; 
+  margin-top: -25px; 
+}
+
+.texto-banner p {
+  text-align: justify;
+  max-width: 450px;
+  line-height: 1.2;
+  font-family: 'serif';
+  font-size: 25px;
+  color: #000000;
+  width: 80%; 
+  margin-bottom: 40px;
+}
+
+.btn-descobrir {
+  margin-left: 60px;
+  background-color: #633633; 
+  color: white;
+  border: none;
+  padding: 15px 60px;
+  border-radius: 20px;  
+  font-size: 18px;
+  cursor: pointer;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+}
+
+.imagem-banner {
+  width: 60%;
+  display: flex;
+}
+
+.foto-banda {
+  width: 100%;
+  border-radius: 20px; 
+  margin-left: -50px
+}
+
+
+
+
+
+
