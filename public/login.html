@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oasis Forever - Login</title>
+
+    <script src="./js/sessao.js"></script>
+
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="icon" href="./assets/icon/oasis_logo.ico">
+
+</head>
+
+<body>
+    <div class="main-content">
+        <div class="logo-central">
+            <img src="./assets/img/oasis_logo.png" alt="Logo Oasis" class="logo-img">
+            <span class="forever-text">FOREVER</span>
+        </div>
+
+        <img src="./assets/img/adesivo.png" alt="Liam Gallagher e Snoopy" class="adesivo">
+
+        <div class="card-cadastro">
+            <h2>LOGIN</h2>
+
+            <div class="card_erro" id="cardErro">
+                <span id="mensagem_erro"></span>
+            </div>
+
+            <form class="formulario-login">
+                <div class="campo">
+                    <label>Username:</label>
+                    <input type="text" id="username_input" placeholder="Digite seu username de login:">
+                </div>
+                <div class="campo">
+                    <label>Senha:</label>
+                    <input type="password" id="senha_input" placeholder="Digite sua senha:">
+                </div>
+            </form>
+
+            <button class="btn-enviar-login" onclick="entrar()">ENTRAR</button>
+            <p class="login-link">Ainda não tem conta? <a href="cadastro.html">Cadastre-se</a></p>
+        </div>
+    </div>
+
+    <script>
+        function entrar() {
+
+            var usernameVar = username_input.value;
+            var senhaVar = senha_input.value;
+
+            if (usernameVar == "" || senhaVar == "") {
+                cardErro.style.display = "block"
+                mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+                return false;
+            }
+            else {
+                setTimeout(sumirMensagem, 5000)
+            }
+
+            console.log("FORM LOGIN: ", usernameVar);
+            console.log("FORM SENHA: ", senhaVar);
+
+            fetch("/usuarios/autenticar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    usernameServer: usernameVar,
+                    senhaServer: senhaVar
+                })
+            }).then(function (resposta) {
+                console.log("ESTOU NO THEN DO entrar()!")
+
+                if (resposta.ok) {
+                    console.log(resposta);
+
+                    resposta.json().then(json => {
+                        console.log(json);
+                        console.log(JSON.stringify(json));
+                        sessionStorage.USERNAME_USUARIO = json.username;
+                        sessionStorage.NOME_USUARIO = json.nome;
+                        sessionStorage.ID_USUARIO = json.id;
+
+                        mensagem_erro.innerHTML = "Login realizado com sucesso! Redirecionando...";
+                        cardErro.style.display = "block";
+
+                        setTimeout(function () {
+                            window.location = "dashboard.html";
+                        }, 1000);
+
+
+
+                    });
+
+                } else {
+
+                    console.log("Houve um erro ao tentar realizar o login!");
+
+                    resposta.text().then(texto => {
+                        console.error(texto);
+                    });
+                }
+
+            }).catch(function (erro) {
+                console.log(erro);
+            })
+
+            return false;
+        }
+
+        function sumirMensagem() {
+            cardErro.style.display = "none"
+        }
+
+    </script>
+
+</body>
+
+</html>
