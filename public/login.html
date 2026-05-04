@@ -25,10 +25,6 @@
         <div class="card-cadastro">
             <h2>LOGIN</h2>
 
-            <div class="card_erro" id="cardErro">
-                <span id="mensagem_erro"></span>
-            </div>
-
             <form class="formulario-login">
                 <div class="campo">
                     <label>Username:</label>
@@ -40,6 +36,9 @@
                 </div>
             </form>
 
+            <div class="card_erro" id="cardErro">
+                <p id="mensagem_erro"> </p>
+            </div>
             <button class="btn-enviar-login" onclick="entrar()">ENTRAR</button>
             <p class="login-link">Ainda não tem conta? <a href="cadastro.html">Cadastre-se</a></p>
         </div>
@@ -53,7 +52,7 @@
 
             if (usernameVar == "" || senhaVar == "") {
                 cardErro.style.display = "block"
-                mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+                mensagem_erro.innerHTML = "Preencha todos os campos";
                 return false;
             }
             else {
@@ -85,6 +84,7 @@
                         sessionStorage.NOME_USUARIO = json.nome;
                         sessionStorage.ID_USUARIO = json.id;
 
+                        cardErro.style.color = "green";
                         mensagem_erro.innerHTML = "Login realizado com sucesso! Redirecionando...";
                         cardErro.style.display = "block";
 

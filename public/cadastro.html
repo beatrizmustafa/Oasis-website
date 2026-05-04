@@ -23,10 +23,6 @@
     <div class="card-cadastro">
       <h2>CADASTRE - SE</h2>
 
-      <div class="cardErro" id="cardErro">
-        <span id="mensagem_erro"></span>
-      </div>
-
       <form class="formulario">
         <div class="coluna">
           <div class="campo">
@@ -63,6 +59,10 @@
         </div>
       </form>
 
+      <div class="cardErro" id="cardErro">
+        <p id="mensagem_erro"></p> 
+      </div>
+
       <button class="btn-enviar" onclick="cadastrar()">CADASTRE-SE</button>
       <p class="login-link">Já tem Cadastro? <a href="login.html">Faça Login!</a></p>
     </div>
@@ -95,7 +95,7 @@
       ) {
         cardErro.style.display = "block";
         mensagem_erro.innerHTML =
-          "(Mensagem de erro para todos os campos em branco)";
+          "Preencha todos os campos";
 
         return false;
       } else {
@@ -143,6 +143,7 @@
 
           if (resposta.ok) {
             cardErro.style.display = "block";
+            cardErro.style.color = "green";
 
             mensagem_erro.innerHTML =
               "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
