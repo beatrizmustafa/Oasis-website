@@ -1,13 +1,113 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Oasis Forever - Dash</title>
+  <title>Oasis Forever - Dashboard</title>
 
-  <script src="./js/sessao.js"></script>
-
-  <link rel="stylesheet" href="./css/style.css">
-  <link rel="icon" href="./assets/icon/oasis_logo.ico">
-
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="./css/style2.css">
 </head>
+
+<body>
+
+  <div class="dashboard-container">
+
+    <aside class="sidebar">
+      <div class="logo-area">
+        <img src="./assets/img/oasis_logo.png" alt="Oasis" class="logo-img">
+        <span class="forever-text">FOREVER</span>
+      </div>
+
+      <div class="user-info">
+        Olá, <strong>*Nome do usuário*</strong>
+      </div>
+
+      <nav class="menu-nav">
+        <a href="#" class="btn-nav">Resultados</a>
+        <a href="#" class="btn-nav">Gráficos</a>
+      </nav>
+
+      <div class="footer-sidebar">
+        <a href="index.html" class="btn-sair">SAIR</a>
+      </div>
+    </aside>
+
+    <main class="main-content">
+
+      <div style="padding: 20px; color: white; text-align: center;">
+        <h1>Análise de Respostas Quiz </h1>
+      </div>
+
+      <div class="container-graficos">
+        <div class="caixa-grafico">
+          <canvas id="graficolinha"></canvas>
+        </div>
+
+        <div class="caixa-grafico">
+          <canvas id="graficobarra"></canvas>
+        </div>
+      </div>
+
+    </main>
+
+  </div>
+
+  <script>
+    const labelsDias = ['segunda', 'terça', 'quarta', 'quinta', 'sexta'];
+    const labelsRespostas = ['A', 'B', 'C', 'D', 'E'];
+
+    const dadosLinha = {
+      labels: labelsDias,
+      datasets: [
+        {
+          label: 'Liam',
+          data: [22, 24, 27, 23, 20, 28],
+          borderColor: 'rgb(255, 255, 255)',
+          backgroundColor: 'rgba(255, 255, 255, 0.5)',
+          tension: 0.3
+        },
+        {
+          label: 'Noel',
+          data: [10, 21, 30, 15, 18, 20],
+          borderColor: 'rgb(34, 37, 67)',
+          backgroundColor: 'rgba(34, 37, 67, 0.5)',
+          tension: 0.3
+        }
+      ]
+    };
+
+    const dadosBarra = {
+      labels: labelsRespostas,
+      datasets: [
+        {
+          label: 'Homem',
+          data: [22, 24, 27, 23, 20, 28],
+          backgroundColor: 'rgba(255, 255, 255, 0.7)',
+          borderWidth: 1
+        },
+        {
+          label: 'Mulher',
+          data: [10, 21, 30, 15, 18, 20],
+          backgroundColor: 'rgba(34, 37, 67, 0.7)',
+          borderWidth: 1
+        }
+      ]
+    };
+
+    new Chart(document.getElementById('graficolinha'), {
+      type: 'line',
+      data: dadosLinha,
+      options: { responsive: true, maintainAspectRatio: false }
+    });
+
+    new Chart(document.getElementById('graficobarra'), {
+      type: 'bar',
+      data: dadosBarra,
+      options: { responsive: true, maintainAspectRatio: false }
+    });
+  </script>
+</body>
+
+</html>

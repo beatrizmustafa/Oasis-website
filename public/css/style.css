@@ -157,6 +157,7 @@ body {
 
 .btn-descobrir {
   margin-left: 60px;
+  text-decoration: none;
   background-color: #633633; 
   color: white;
   border: none;
@@ -208,13 +209,13 @@ body {
 }
 
 .timeline {
-    padding: 20px 0px; /* Mais espaço para o site "respirar" */
+    padding: 20px 0px; 
     background-color: #ffffff;
     width: 100%;
 }
 
 .container-timeline {
-    max-width: 1300px; /* AUMENTADO: Para ocupar melhor a largura da tela */
+    max-width: 1300px; 
     margin: 0 auto;
     padding: 0 50px;
 }
@@ -223,7 +224,7 @@ body {
     text-align: center;
     font-family: 'Radio Canada Big';
     font-weight: 500;
-    font-size: 46px; /* AUMENTADO: Título maior e mais impactante */
+    font-size: 46px; 
     color: #000;
     margin-bottom: 100px;
 }
@@ -238,18 +239,17 @@ body {
     position: absolute;
     left: 80px; 
     top: 0;
-    width: 2px; /* Aumentado para 2px para ficar mais visível */
+    width: 2px;
     height: 100%;
-    background-color: #d1d1d1c4; /* Cinza médio para maior destaque */
+    background-color: #d1d1d1c4; 
 }
 
-/* AJUSTE NO ANO: Para acompanhar a força visual da linha */
 .timeline-year {
     position: absolute;
     left: -130px;
     width: 80px;
-    font-weight: 300; /* Peso aumentado para destacar o ano */
-    color: #333; /* Cor mais escura para leitura clara */
+    font-weight: 300; 
+    color: #333; 
     font-size: 18px;
     text-align: right;
     font-family: 'Radio Canada Big';
@@ -258,20 +258,20 @@ body {
 .timeline-item {
     display: flex;
     align-items: center; 
-    margin-bottom: 110px; /* Mais distância entre as eras da banda */
+    margin-bottom: 110px; 
     position: relative;
 }
 
 
 .timeline-img {
     flex-shrink: 0;
-    width: 480px; /* AUMENTADO: Imagens maiores para destaque visual */
+    width: 480px; 
     margin: 0 60px 0 20px;
 }
 
 .timeline-img img {
     width: 100%;
-    border-radius: 18px; /* Cantos arredondados como no seu projeto do Figma */
+    border-radius: 18px; 
 }
 
 .timeline-text {
@@ -431,10 +431,8 @@ body {
   line-height: 1;
 }
 
-/* ########## SEÇÃO ÁLBUNS ########## */
-
 .section-albums {
-    background-color: #633633; /* Cor marrom-avermelhada conforme o design */
+    background-color: #633633; 
    padding: 40px 0 100px 0;    
    color: white;
     width: 100%;
@@ -467,15 +465,15 @@ body {
 
 .card-album img {
     width: 100%;
-    height: 350px; /* Ajuste essa altura conforme o seu gosto */
-    object-fit: cover; /* Recorta a imagem para preencher o espaço sem esticar */
+    height: 350px;
+    object-fit: cover; 
     border-radius: 12px;
     margin-bottom: 25px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.3);
     transition: transform 0.3s ease;
 }
 .card-album img:hover {
-    transform: scale(1.03); /* Leve efeito de zoom no hover */
+    transform: scale(1.03); 
 }
 
 .card-album h3 {
@@ -485,7 +483,7 @@ body {
     margin-bottom: 10px;
     color: white;
     display: flex;
-    align-items: flex-start; /* Mantém o texto no topo do espaço reservado */
+    align-items: flex-start; 
 }
 
 .card-album p {
@@ -494,7 +492,7 @@ body {
     line-height: 1.5;
     opacity: 0.9;
     color: white;
-    min-height: 80px; /* Garante que o texto de baixo também comece na mesma linha */
+    min-height: 80px; 
 }
 
 
@@ -508,7 +506,7 @@ body {
 .footer .container {
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Garante que a logo e o bloco de baixo comecem na esquerda */
+    align-items: flex-start; 
     width: 90%;
     margin: auto;
     gap: 50px; 
@@ -516,9 +514,9 @@ body {
 
 .footer-info {
     display: flex;
-    justify-content: space-between; /* Empurra o texto para a esquerda e os ícones para a direita */
+    justify-content: space-between; 
     align-items: center;
-    width: 100%; /* ESSENCIAL: Faz a linha ocupar toda a largura para o space-between funcionar */
+    width: 100%; 
 }
 
 .footer-info p {
@@ -543,6 +541,7 @@ body {
     opacity: 0.7;
     transform: scale(1.1);
 } 
+
 
 
 
