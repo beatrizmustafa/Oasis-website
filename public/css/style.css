@@ -97,6 +97,26 @@ body {
   transition: 0.5s;
 }
 
+.input-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.olho-senha {
+  position: absolute;
+  right: 10px;
+  width: 22px; 
+  cursor: pointer;
+  opacity: 0.5; 
+  transition: 0.3s;
+}
+
+.olho-senha.ativo {
+  opacity: 1;
+  filter: drop-shadow(0 0 2px #fff); 
+}
+
 
 
 .btn_login{

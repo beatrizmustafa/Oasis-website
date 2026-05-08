@@ -48,24 +48,29 @@
             <label>Senha:</label>
             <div class="input-icon">
               <input type="password" id="input_senha" placeholder="Crie sua senha:">
+              <img src="./assets/img/olho.png" id="img_olho_senha" class="olho-senha"
+                onclick="mostrarSenha('input_senha', 'img_olho_senha')" alt="Mostrar senha">
             </div>
           </div>
           <div class="campo">
             <label>Confirme sua senha:</label>
             <div class="input-icon">
               <input type="password" id="input_confirmacao_senha" placeholder="Confirme sua senha:">
+              <img src="./assets/img/olho.png" id="img_olho_confirma" class="olho-senha"
+                onclick="mostrarSenha('input_confirmacao_senha', 'img_olho_confirma')" alt="Mostrar senha">
             </div>
           </div>
         </div>
-      </form>
-
-      <div class="cardErro" id="cardErro">
-        <p id="mensagem_erro"></p> 
-      </div>
-
-      <button class="btn-enviar" onclick="cadastrar()">CADASTRE-SE</button>
-      <p class="login-link">Já tem Cadastro? <a href="login.html">Faça Login!</a></p>
     </div>
+    </form>
+
+    <div class="cardErro" id="cardErro">
+      <p id="mensagem_erro"></p>
+    </div>
+
+    <button class="btn-enviar" onclick="cadastrar()">CADASTRE-SE</button>
+    <p class="login-link">Já tem Cadastro? <a href="login.html">Faça Login!</a></p>
+  </div>
   </div>
   <script>
 
@@ -182,6 +187,18 @@
 
     function sumirMensagem() {
       cardErro.style.display = "none";
+    }
+
+    function mostrarSenha(idInput, idImg) {
+      var input = document.getElementById(idInput);
+      var imagem = document.getElementById(idImg);
+
+      if (input.type === "password") {
+        input.type = "text";
+        imagem.classList.add("ativo");
+        input.type = "password";
+        imagem.classList.remove("ativo");
+      }
     }
   </script>
 
