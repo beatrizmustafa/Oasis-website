@@ -21,57 +21,53 @@
     </div>
 
     <div class="card-cadastro">
-      <h2>CADASTRE - SE</h2>
+    <h2>CADASTRE - SE</h2>
 
-      <form class="formulario">
+    <form class="formulario">
         <div class="coluna">
-          <div class="campo">
-            <label>Nome Completo:</label>
-            <input type="text" id="input_nome" placeholder="Digite seu nome completo:">
-          </div>
-          <div class="campo">
-            <label>E-mail:</label>
-            <input type="email" id="input_email" placeholder="Digite seu e-mail:">
-          </div>
-          <div class="campo">
-            <label>CPF:</label>
-            <input type="text" id="input_cpf" placeholder="Digite seu cpf:">
-          </div>
+            <div class="campo">
+                <label>Nome Completo:</label>
+                <input type="text" id="input_nome" placeholder="Digite seu nome completo:">
+            </div>
+            <div class="campo">
+                <label>E-mail:</label>
+                <input type="email" id="input_email" placeholder="Digite seu e-mail:">
+            </div>
+            <div class="campo">
+                <label>CPF:</label>
+                <input type="text" id="input_cpf" placeholder="Digite seu cpf:">
+            </div>
         </div>
 
         <div class="coluna">
-          <div class="campo">
-            <label>Username:</label>
-            <input type="text" id="input_username" placeholder="Digite seu username:">
-          </div>
-          <div class="campo">
-            <label>Senha:</label>
-            <div class="input-icon">
-              <input type="password" id="input_senha" placeholder="Crie sua senha:">
-              <img src="./assets/img/olho.png" id="img_olho_senha" class="olho-senha"
-                onclick="mostrarSenha('input_senha', 'img_olho_senha')" alt="Mostrar senha">
+            <div class="campo">
+                <label>Username:</label>
+                <input type="text" id="input_username" placeholder="Digite seu username:">
             </div>
-          </div>
-          <div class="campo">
-            <label>Confirme sua senha:</label>
-            <div class="input-icon">
-              <input type="password" id="input_confirmacao_senha" placeholder="Confirme sua senha:">
-              <img src="./assets/img/olho.png" id="img_olho_confirma" class="olho-senha"
-                onclick="mostrarSenha('input_confirmacao_senha', 'img_olho_confirma')" alt="Mostrar senha">
+            <div class="campo">
+                <label>Senha:</label>
+                <div class="input-icon">
+                    <input type="password" id="input_senha" placeholder="Crie sua senha:">
+                </div>
             </div>
-          </div>
+            <div class="campo">
+                <label>Confirme sua senha:</label>
+                <div class="input-icon">
+                    <input type="password" id="input_confirmacao_senha" placeholder="Confirme sua senha:">
+                </div>
+            </div>
         </div>
-    </div>
-    </form>
+    </form> 
 
-    <div class="cardErro" id="cardErro">
-      <p id="mensagem_erro"></p>
+    <div class="cardErro" id="cardErro" style="display: none;">
+        <p id="mensagem_erro"></p>
     </div>
 
     <button class="btn-enviar" onclick="cadastrar()">CADASTRE-SE</button>
     <p class="login-link">Já tem Cadastro? <a href="login.html">Faça Login!</a></p>
-  </div>
-  </div>
+
+</div> 
+
   <script>
 
     let listaUsuariosCadastrados = [];
@@ -189,17 +185,6 @@
       cardErro.style.display = "none";
     }
 
-    function mostrarSenha(idInput, idImg) {
-      var input = document.getElementById(idInput);
-      var imagem = document.getElementById(idImg);
-
-      if (input.type === "password") {
-        input.type = "text";
-        imagem.classList.add("ativo");
-        input.type = "password";
-        imagem.classList.remove("ativo");
-      }
-    }
   </script>
 
 </body>

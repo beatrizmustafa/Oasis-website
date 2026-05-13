@@ -7,8 +7,10 @@ body {
   font-family: 'Radio Canada Big';
   background: linear-gradient(180deg, #10375c 0%, #ffffff 80vh); 
   background-repeat: no-repeat;
-  background-color: #ffffff; /* Garante que o restante da página seja branco puro */
+  background-color: #ffffff; 
 }
+
+/* --- Seção Home --- */
 
 .header {
   padding: 15px 0;
@@ -72,7 +74,7 @@ body {
 
 .botoes a {
   text-decoration: none;
-  padding: 8px 25px;
+  padding: 8px 25px; 
   border-radius: 8px;
   font-size: 14px;
   transition: 0.3s;
@@ -103,21 +105,6 @@ body {
   align-items: center;
 }
 
-.olho-senha {
-  position: absolute;
-  right: 10px;
-  width: 22px; 
-  cursor: pointer;
-  opacity: 0.5; 
-  transition: 0.3s;
-}
-
-.olho-senha.ativo {
-  opacity: 1;
-  filter: drop-shadow(0 0 2px #fff); 
-}
-
-
 
 .btn_login{
     font-family: 'Archivo';
@@ -146,7 +133,6 @@ body {
 .texto-banner {
   width: 50%;
 }
-
 
 .fonte1 {
   font-family: 'serif'; 
@@ -219,14 +205,7 @@ body {
     gap: 8px;
 }
 
-.oasis-box {
-    background: white;
-    color: black;
-    padding: 2px 8px;
-    font-weight: bold;
-    border-radius: 4px;
-    font-size: 1.2rem;
-}
+/* --- Seção Linha do Tempo --- */
 
 .timeline {
     padding: 20px 0px; 
@@ -305,6 +284,180 @@ body {
 }
 
 
+/* --- Seção Álbuns --- */
+
+.section-albums {
+    background-color: #633633; 
+   padding: 40px 0 100px 0;    
+   color: white;
+    width: 100%;
+}
+
+.container-albums {
+    width: 85%;
+    max-width: 1200px;
+    margin: auto;
+    text-align: center;
+}
+
+.albums-title {
+    font-family: 'Radio Canada Big';
+    font-size: 40px;
+    font-weight: 600;
+    margin-bottom: 70px;
+}
+
+.cards-albums {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.card-album {
+    flex: 1;
+    text-align: left;
+}
+
+.card-album img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover; 
+    border-radius: 12px;
+    margin-bottom: 25px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease;
+}
+.card-album img:hover {
+    transform: scale(1.03); 
+}
+
+.card-album h3 {
+    font-family: 'Radio Canada Big';
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: white;
+    display: flex;
+    align-items: flex-start; 
+}
+
+.card-album p {
+    font-family: 'Radio Canada Big';
+    font-size: 16px;
+    line-height: 1.5;
+    opacity: 0.9;
+    color: white;
+    min-height: 80px; 
+}
+
+/* --- Seção Live 2025 --- */
+
+#live {
+    background-color: #ffffff; 
+    padding: 80px 0;
+    width: 100%;
+}
+
+.live-container {
+    max-width: 1200px;
+    margin: 0 auto;
+     text-align: justify; 
+}
+
+.live-title {
+    font-family: 'Radio Canada Big';
+    font-size: 42px;
+    font-weight: 600;
+    color: #000000;
+    margin-bottom: 50px;
+}
+
+.live-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px; 
+}
+
+.live-content p {
+    font-family: 'Radio Canada Big';
+    font-size: 20px;
+    line-height: 1.6;
+    color: #000000;
+    max-width: 900px; 
+    margin: 0 auto;
+}
+
+.live-image {
+    width: 100%;
+    max-width: 850px;
+    margin: 20px 0;
+}
+
+.foto-live {
+    width: 100%;
+    border-radius: 25px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); 
+}
+
+#live .container {
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+/* --- Seção Footer --- */
+
+.footer {
+    background-color: #212350;
+    padding: 60px 0 40px 0;
+    color: white;
+    width: 100%;
+}
+
+.footer .container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+    width: 90%;
+    margin: auto;
+    gap: 50px; 
+}
+
+.footer-info {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    width: 100%; 
+}
+
+.footer-info p {
+    font-family: 'Radio Canada Big';
+    font-size: 14px;
+    margin: 0;
+    opacity: 0.8;
+}
+
+
+.social-icons {
+    display: flex;
+    gap: 20px;
+}
+
+.social-icons img {
+    height: 30px;
+    filter: brightness(0) invert(1); 
+    transition: 0.3s;
+}
+
+.social-icons img:hover {
+    opacity: 0.7;
+    transform: scale(1.1);
+} 
+
+/* --- Seção Cadastro/Login --- */
+
+
 .card-cadastro {
     background: white;
     width: 100%;
@@ -313,6 +466,7 @@ body {
     border-radius: 25px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     text-align: center;
+
 
 }
 
@@ -328,6 +482,7 @@ body {
     grid-template-columns: 1fr 1fr;
     gap: 20px;
     text-align: left;
+
 }
 
 .campo {
@@ -349,7 +504,6 @@ body {
     box-sizing: border-box; 
     font-size: 13px;
 }
-
 
 .btn-enviar {
     background-color: #633633;
@@ -450,131 +604,3 @@ body {
   font-size: 15px;
   line-height: 1;
 }
-
-.section-albums {
-    background-color: #633633; 
-   padding: 40px 0 100px 0;    
-   color: white;
-    width: 100%;
-}
-
-.container-albums {
-    width: 85%;
-    max-width: 1200px;
-    margin: auto;
-    text-align: center;
-}
-
-.albums-title {
-    font-family: 'Radio Canada Big';
-    font-size: 40px;
-    font-weight: 600;
-    margin-bottom: 70px;
-}
-
-.cards-albums {
-    display: flex;
-    justify-content: space-between;
-    gap: 40px;
-}
-
-.card-album {
-    flex: 1;
-    text-align: left;
-}
-
-.card-album img {
-    width: 100%;
-    height: 350px;
-    object-fit: cover; 
-    border-radius: 12px;
-    margin-bottom: 25px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-    transition: transform 0.3s ease;
-}
-.card-album img:hover {
-    transform: scale(1.03); 
-}
-
-.card-album h3 {
-    font-family: 'Radio Canada Big';
-    font-size: 22px;
-    font-weight: bold;
-    margin-bottom: 10px;
-    color: white;
-    display: flex;
-    align-items: flex-start; 
-}
-
-.card-album p {
-    font-family: 'Radio Canada Big';
-    font-size: 16px;
-    line-height: 1.5;
-    opacity: 0.9;
-    color: white;
-    min-height: 80px; 
-}
-
-
-.footer {
-    background-color: #212350;
-    padding: 60px 0 40px 0;
-    color: white;
-    width: 100%;
-}
-
-.footer .container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; 
-    width: 90%;
-    margin: auto;
-    gap: 50px; 
-}
-
-.footer-info {
-    display: flex;
-    justify-content: space-between; 
-    align-items: center;
-    width: 100%; 
-}
-
-.footer-info p {
-    font-family: 'Radio Canada Big';
-    font-size: 14px;
-    margin: 0;
-    opacity: 0.8;
-}
-
-.social-icons {
-    display: flex;
-    gap: 20px;
-}
-
-.social-icons img {
-    height: 30px;
-    filter: brightness(0) invert(1); 
-    transition: 0.3s;
-}
-
-.social-icons img:hover {
-    opacity: 0.7;
-    transform: scale(1.1);
-} 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
