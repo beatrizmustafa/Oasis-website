@@ -21,171 +21,188 @@
     </div>
 
     <div class="card-cadastro">
-    <h2>CADASTRE - SE</h2>
+      <h2>CADASTRE - SE</h2>
 
-    <form class="formulario">
+      <form class="formulario">
         <div class="coluna">
-            <div class="campo">
-                <label>Nome Completo:</label>
-                <input type="text" id="input_nome" placeholder="Digite seu nome completo:">
-            </div>
-            <div class="campo">
-                <label>E-mail:</label>
-                <input type="email" id="input_email" placeholder="Digite seu e-mail:">
-            </div>
-            <div class="campo">
-                <label>CPF:</label>
-                <input type="text" id="input_cpf" placeholder="Digite seu cpf:">
-            </div>
+          <div class="campo">
+            <label>Nome Completo:</label>
+            <input type="text" id="input_nome" placeholder="Digite seu nome completo:">
+          </div>
+          <div class="campo">
+            <label>E-mail:</label>
+            <input type="email" id="input_email" placeholder="Digite seu e-mail:">
+          </div>
+          <div class="campo">
+            <label>CPF:</label>
+            <input type="text" id="input_cpf" placeholder="Digite seu cpf:">
+          </div>
         </div>
 
         <div class="coluna">
-            <div class="campo">
-                <label>Username:</label>
-                <input type="text" id="input_username" placeholder="Digite seu username:">
+          <div class="campo">
+            <label>Username:</label>
+            <input type="text" id="input_username" placeholder="Digite seu username:">
+          </div>
+          <div class="campo">
+            <label>Senha:</label>
+            <div class="input-icon">
+              <input type="password" id="input_senha" placeholder="Crie sua senha:">
+              <img src="./assets/img/olhofechado.png" id="img_olho_senha" class="olho-senha"
+                onclick="mostrarSenha('input_senha', 'img_olho_senha')" alt="Mostrar senha">
             </div>
-            <div class="campo">
-                <label>Senha:</label>
-                <div class="input-icon">
-                    <input type="password" id="input_senha" placeholder="Crie sua senha:">
-                </div>
+          </div>
+          <div class="campo">
+            <label>Confirme sua senha:</label>
+            <div class="input-icon">
+              <input type="password" id="input_confirmacao_senha" placeholder="Confirme sua senha:">
+              <img src="./assets/img/olhofechado.png" id="img_olho_senha2" class="olho-senha"
+                onclick="mostrarSenha('input_confirmacao_senha', 'img_olho_senha2')" alt="Mostrar senha">
             </div>
-            <div class="campo">
-                <label>Confirme sua senha:</label>
-                <div class="input-icon">
-                    <input type="password" id="input_confirmacao_senha" placeholder="Confirme sua senha:">
-                </div>
-            </div>
+          </div>
         </div>
-    </form> 
+      </form>
 
-    <div class="cardErro" id="cardErro" style="display: none;">
+      <div class="cardErro" id="cardErro" style="display: none;">
         <p id="mensagem_erro"></p>
+      </div>
+
+      <button class="btn-enviar" onclick="cadastrar()">CADASTRE-SE</button>
+      <p class="login-link">Já tem Cadastro? <a href="login.html">Faça Login!</a></p>
+
     </div>
 
-    <button class="btn-enviar" onclick="cadastrar()">CADASTRE-SE</button>
-    <p class="login-link">Já tem Cadastro? <a href="login.html">Faça Login!</a></p>
+    <script>
 
-</div> 
-
-  <script>
-
-    let listaUsuariosCadastrados = [];
+      let listaUsuariosCadastrados = [];
 
 
-    function cadastrar() {
-      console.log("Lista de usuários carregada:", listaUsuariosCadastrados);
+      function cadastrar() {
+        console.log("Lista de usuários carregada:", listaUsuariosCadastrados);
 
 
-      var nomeVar = input_nome.value;
-      var emailVar = input_email.value;
-      var cpfVar = input_cpf.value;
-      var usernameVar = input_username.value;
-      var senhaVar = input_senha.value;
-      var confirmacaoSenhaVar = input_confirmacao_senha.value;
+        var nomeVar = input_nome.value;
+        var emailVar = input_email.value;
+        var cpfVar = input_cpf.value;
+        var usernameVar = input_username.value;
+        var senhaVar = input_senha.value;
+        var confirmacaoSenhaVar = input_confirmacao_senha.value;
 
-      var idUsuarioEncontrado = undefined;
+        var idUsuarioEncontrado = undefined;
 
-      if (
-        nomeVar == "" ||
-        emailVar == "" ||
-        cpfVar == "" ||
-        usernameVar == "" ||
-        senhaVar == "" ||
-        confirmacaoSenhaVar == ""
-      ) {
-        cardErro.style.display = "block";
-        mensagem_erro.innerHTML =
-          "Preencha todos os campos";
+        if (
+          nomeVar == "" ||
+          emailVar == "" ||
+          cpfVar == "" ||
+          usernameVar == "" ||
+          senhaVar == "" ||
+          confirmacaoSenhaVar == ""
+        ) {
+          cardErro.style.display = "block";
+          mensagem_erro.innerHTML =
+            "Preencha todos os campos";
+
+          return false;
+        } else {
+          setTimeout(sumirMensagem, 5000);
+        }
+
+        if (senhaVar != confirmacaoSenhaVar) {
+          cardErro.style.display = "block";
+          mensagem_erro.innerHTML = "As senhas não coincidem!";
+          return false;
+        }
+
+        for (let i = 0; i < listaUsuariosCadastrados.length; i++) {
+          if (listaUsuariosCadastrados[i].username == usernameVar) {
+            idUsuarioEncontrado = listaUsuariosCadastrados[i].id;
+            console.log("Username já cadastrado encontrado.");
+            break;
+          }
+        }
+
+
+        if (idUsuarioEncontrado != undefined) {
+          cardErro.style.display = "block";
+          mensagem_erro.innerHTML = `O username "${usernameVar}" já está em uso!`;
+          return false;
+        }
+
+
+        fetch("/usuarios/cadastrar", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+
+            nomeServer: nomeVar,
+            emailServer: emailVar,
+            cpfServer: cpfVar,
+            usernameServer: usernameVar,
+            senhaServer: senhaVar,
+          }),
+        })
+          .then(function (resposta) {
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+              cardErro.style.display = "block";
+              cardErro.style.color = "green";
+
+              mensagem_erro.innerHTML =
+                "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+              setTimeout(() => {
+                window.location = "login.html";
+              }, "2000");
+
+            } else {
+              throw "Houve um erro ao tentar realizar o cadastro!";
+            }
+          })
+          .catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+          });
 
         return false;
-      } else {
-        setTimeout(sumirMensagem, 5000);
       }
 
-      if (senhaVar != confirmacaoSenhaVar) {
-        cardErro.style.display = "block";
-        mensagem_erro.innerHTML = "As senhas não coincidem!";
-        return false;
+      function buscarUsuarios() {
+        fetch("/usuarios/buscarUsuarios", {
+          method: "GET",
+        })
+          .then(function (resposta) {
+            resposta.json().then((usuarios) => {
+              usuarios.forEach((usuario) => {
+                listaUsuariosCadastrados.push(usuario);
+              });
+              console.log("Lista de usuários carregada:", listaUsuariosCadastrados);
+            });
+          })
+          .catch(function (resposta) {
+            console.log(`#ERRO ao buscar usuários: ${resposta}`);
+          });
       }
 
-      for (let i = 0; i < listaUsuariosCadastrados.length; i++) {
-        if (listaUsuariosCadastrados[i].username == usernameVar) {
-          idUsuarioEncontrado = listaUsuariosCadastrados[i].id;
-          console.log("Username já cadastrado encontrado.");
-          break;
+      function sumirMensagem() {
+        cardErro.style.display = "none";
+      }
+
+      function mostrarSenha(idInput, idImg) {
+        var input = document.getElementById(idInput);
+        var imagem = document.getElementById(idImg);
+
+        if (input.type === "password") {
+          input.type = "text";
+          imagem.src = "./assets/img/olhoaberto.png";
+        } else {
+          input.type = "password";
+          imagem.src = "./assets/img/olhofechado.png";
         }
       }
 
-
-      if (idUsuarioEncontrado != undefined) {
-        cardErro.style.display = "block";
-        mensagem_erro.innerHTML = `O username "${usernameVar}" já está em uso!`;
-        return false;
-      }
-
-
-      fetch("/usuarios/cadastrar", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-
-          nomeServer: nomeVar,
-          emailServer: emailVar,
-          cpfServer: cpfVar,
-          usernameServer: usernameVar,
-          senhaServer: senhaVar,
-        }),
-      })
-        .then(function (resposta) {
-          console.log("resposta: ", resposta);
-
-          if (resposta.ok) {
-            cardErro.style.display = "block";
-            cardErro.style.color = "green";
-
-            mensagem_erro.innerHTML =
-              "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
-
-            setTimeout(() => {
-              window.location = "login.html";
-            }, "2000");
-
-          } else {
-            throw "Houve um erro ao tentar realizar o cadastro!";
-          }
-        })
-        .catch(function (resposta) {
-          console.log(`#ERRO: ${resposta}`);
-        });
-
-      return false;
-    }
-
-    function buscarUsuarios() {
-      fetch("/usuarios/buscarUsuarios", {
-        method: "GET",
-      })
-        .then(function (resposta) {
-          resposta.json().then((usuarios) => {
-            usuarios.forEach((usuario) => {
-              listaUsuariosCadastrados.push(usuario);
-            });
-            console.log("Lista de usuários carregada:", listaUsuariosCadastrados);
-          });
-        })
-        .catch(function (resposta) {
-          console.log(`#ERRO ao buscar usuários: ${resposta}`);
-        });
-    }
-
-    function sumirMensagem() {
-      cardErro.style.display = "none";
-    }
-
-  </script>
+    </script>
 
 </body>
 
